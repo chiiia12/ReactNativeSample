@@ -1,24 +1,34 @@
 import React, { Component } from 'react';
-import { Text, Image,View } from 'react-native';
+import { Text, Image, View } from 'react-native';
 
-class Greeting extends Component {
+class Blink extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { isShowingText: true };
+
+    setInterval(() => {
+      this.setState(previousState => {
+        return { isShowingText: !previousState.isShowingText };
+      });
+    }, 1000);
+  }
   render() {
-    return (
-      <Text>Hello {this.props.name}!</Text>
+    let display = this.state.isShowingText ? this.props.text : ' ';
+    return(
+      <Text>{display}</Text>
     );
   }
 }
-export default class HelloWorldApp extends Component {
-  render() {
-    let pic = {
-      uri: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg'
-    };
-    return (
-      <View style={{ allignItems: 'center' }}>
-      <Image source={pic} style={{ width: 193, height: 110 }} />
-        <Greeting name='Rexaaar' />
-        <Greeting name='Jaina' />
-      </View>
-   );
-  }
+
+export default class BlinkApp extends Component{
+render(){
+  return(
+    <View>
+        <Blink text="I love to blink"/>
+        <Blink text="Yes blinking is so great"/>
+        <Blink text="Why did they ever take this out of HTML"/>
+        <Blink text="Look at me look at me look at me"/>
+     </View>
+  )
+}
 }
