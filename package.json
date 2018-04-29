@@ -11,7 +11,10 @@
     "react-native": "0.54.0",
     "react-native-sortable-listview": "^0.2.8",
     "react-native-vector-icons": "^4.5.0",
-    "realm": "^2.3.3"
+    "react-redux": "^5.0.7",
+    "realm": "^2.3.3",
+    "redux": "^4.0.0",
+    "redux-logger": "^3.0.6"
   },
   "devDependencies": {
     "babel-jest": "22.4.1",
