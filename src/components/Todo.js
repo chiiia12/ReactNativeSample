@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import {View} from 'react-native'
+import { View } from 'react-native'
 import { ListItem } from 'react-native-elements'
 
 class Todo extends Component {
