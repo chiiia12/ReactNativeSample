@@ -1,14 +1,15 @@
 import React from 'react'
-import { render } from 'react-native'
 import { Provider } from 'react-redux'
-import rootReducer from './src/reducers'
-import App from './src/components/App'
-import { createStore } from 'redux'
+import Main from './src/components/Main'
+import store from './src/store'
+import { AppRegistry } from 'react-native'
 
-const store = createStore(rootReducer)
-render(
-    <Provider store={store}>
-        <App />
-    </Provider>,
-    document.getElementById('root')
-)
+const App = () => {
+    return (
+        <Provider store={store}>
+            <Main />
+        </Provider>
+    )
+}
+// export default App;
+AppRegistry.registerComponent('ReactNativeSample', () => App)
