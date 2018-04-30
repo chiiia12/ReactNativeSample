@@ -1,6 +1,7 @@
 import {
     ADD_TODO,
     TOGGLE_TODO,
+    REMOVE_TODO,
     SET_VISIBILITY_FILTER
 } from './types'
 
@@ -18,5 +19,9 @@ export const setVisibilityFilter = filter => ({
 
 export const toggleTodo = id => ({
     type: 'TOGGLE_TODO',
+    id
+})
+export const removeTodo = id => ({
+    type: 'REMOVE_TODO',
     id
 })
