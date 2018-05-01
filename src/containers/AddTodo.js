@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { addTodo, getContribution } from '../actions'
+import { addTodo, getRequest } from '../actions'
 import { View, TextInput, TouchableHighlight, Text, StyleSheet } from 'react-native'
 
 
@@ -34,7 +34,7 @@ const mapDispatchToProps = dispatch => {
     return {
         addTodo: text => {
             // dispatch(addTodo(text))
-            dispatch(getContribution(text))
+            dispatch(getRequest(text))
         }
     }
 }

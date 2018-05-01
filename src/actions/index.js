@@ -6,6 +6,7 @@ import {
     GET_REQUEST_SUCCESS,
     GET_REQUEST_FAILURE,
 } from './types'
+import axios from 'axios';
 
 let nextTodoId = 0
 export const addTodo = text => ({
@@ -45,10 +46,13 @@ export const getRequest = text => {
     return (dispatch) => {
         dispatch(getContribution())
         // return axios.get(`https://github.com/users/chiiia12/contributions`)
-        return axios.get(`https://api.github.com/users/${text}`)
-            .then(res =>
-                dispatch(addTodo(res.data)))
-            .catch(err =>
-                dispatch(getRequestFailure(err)))
+        // return axios.get(`https://api.github.com/users/chiiia12`)
+        return axios.get('https://rallycoding.herokuapp.com/api/music_albums')
+            .then(res => {
+                dispatch(addTodo(res.data[0].artist))
+            })
+            .catch(err => {
+                dispatch(getRequestFailure(err))
+            })
     }
 }
