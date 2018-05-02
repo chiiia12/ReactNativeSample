@@ -9,6 +9,11 @@ import {
 import axios from 'axios';
 
 let nextTodoId = 0
+export const addInfo = data => ({
+    type: 'ADD_INFO',
+    id: nextTodoId,
+    text,
+})
 export const addTodo = text => ({
     type: 'ADD_TODO',
     id: nextTodoId++,
@@ -39,6 +44,13 @@ export const getRequestFailure = (err) => {
     return {
         type: 'GET_REQUEST_FAILURE',
         err
+    }
+}
+export const addInfo = (data) => {
+    console.log("addInfo")
+    return {
+        type: 'ADD_INFO',
+        data
     }
 }
 export const getRequest = text => {
