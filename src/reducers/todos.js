@@ -1,16 +1,18 @@
 import {
+    ADD_INFO,
     ADD_TODO,
     TOGGLE_TODO
 } from '../actions/types'
 
 const todos = (state = [], action) => {
     switch (action.type) {
-        case 'ADD_TODO':
+        case 'ADD_INFO':
             return [
                 ...state,
                 {
                     id: action.id,
-                    text: action.text,
+                    title: action.title,
+                    artist: action.artist,
                     completed: false,
                 }
             ]

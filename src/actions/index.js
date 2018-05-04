@@ -1,4 +1,5 @@
 import {
+    ADD_INFO,
     ADD_TODO,
     TOGGLE_TODO,
     REMOVE_TODO,
@@ -9,11 +10,6 @@ import {
 import axios from 'axios';
 
 let nextTodoId = 0
-export const addInfo = data => ({
-    type: 'ADD_INFO',
-    id: nextTodoId,
-    text,
-})
 export const addTodo = text => ({
     type: 'ADD_TODO',
     id: nextTodoId++,
@@ -49,8 +45,10 @@ export const getRequestFailure = (err) => {
 export const addInfo = (data) => {
     console.log("addInfo")
     return {
+        id:nextTodoId++,
         type: 'ADD_INFO',
-        data
+        title:data.title,
+        artist:data.artist,
     }
 }
 export const getRequest = text => {
@@ -61,7 +59,7 @@ export const getRequest = text => {
         // return axios.get(`https://api.github.com/users/chiiia12`)
         return axios.get('https://rallycoding.herokuapp.com/api/music_albums')
             .then(res => {
-                dispatch(addTodo(res.data[0].artist))
+                dispatch(addInfo(res.data[0]))
             })
             .catch(err => {
                 dispatch(getRequestFailure(err))

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { addTodo, getRequest } from '../actions'
+import { addTodo, getRequest,addInfo } from '../actions'
 import { View, TextInput, TouchableHighlight, Text, StyleSheet } from 'react-native'
 
 
